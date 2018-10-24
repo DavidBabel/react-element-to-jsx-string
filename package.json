@@ -1,5 +1,5 @@
 {
-  "name": "react-element-to-jsx-string",
+  "name": "@davidbabel/react-element-to-jsx-string",
   "version": "14.0.2",
   "description": "Turn a ReactElement into the corresponding JSX string.",
   "main": "dist/cjs/index.js",
@@ -23,10 +23,7 @@
     "smoke": "node tests/smoke/run"
   },
   "lint-staged": {
-    "*.js": [
-      "prettier --write \"**/*.{js,json}\"",
-      "git add"
-    ]
+    "*.js": ["prettier --write \"**/*.{js,json}\"", "git add"]
   },
   "author": {
     "name": "Algolia, Inc.",
