@@ -6,6 +6,7 @@ export type Options = {|
   filterProps: string[],
   showDefaultProps: boolean,
   showFunctions: boolean,
+  transformFunctionsToArrow: boolean,
   functionValue: Function,
   tabStop: number,
   useBooleanShorthandSyntax: boolean,

@@ -74,12 +74,18 @@ const parseReactElement = (
     .map(child => parseReactElement(child, options));
 
   if (typeof element.props.children === 'function') {
+    const stringFct = element.props.children.toString();
+    const searchParameters = stringFct.match(/function \w*\s*\((.*?)\)\s*{/);
+    const parameters =
+      searchParameters && searchParameters[1]
+        ? searchParameters[1].split(',').map(s => s.trim())
+        : [];
     const functionChildrens = parseReactElement(
       element.props.children(),
       options,
       true
     );
-    childrens.push(createReactFunctionTreeNode(functionChildrens));
+    childrens.push(createReactFunctionTreeNode(functionChildrens, parameters));
   }
 
   if (supportFragment && element.type === Fragment) {

@@ -18,6 +18,7 @@ export type NumberTreeNode = {|
 
 export type ReactFunctionTreeNode = {|
   type: 'ReactFunction',
+  parameters: string,
   childrens: TreeNode[],
 |};
 
@@ -52,9 +53,11 @@ export const createNumberTreeNode = (value: number): NumberTreeNode => ({
 });
 
 export const createReactFunctionTreeNode = (
-  childrens: TreeNode[]
+  childrens: TreeNode[],
+  parameters: string[]
 ): ReactFunctionTreeNode => ({
   type: 'ReactFunction',
+  parameters,
   childrens,
 });
 

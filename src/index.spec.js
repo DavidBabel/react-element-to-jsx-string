@@ -913,6 +913,38 @@ describe('reactElementToJSXString(ReactElement)', () => {
     );
   });
 
+  it('reactElementToJSXString(<div>{(e) => (<div>Hello World</div>)}</div>)', () => {
+    expect(
+      reactElementToJSXString(<div>{e => <div>Hello World</div>}</div>, {
+        showFunctions: true,
+      })
+    ).toEqual(
+      `<div>
+  {(e) => (
+    <div>
+      Hello World
+    </div>
+  )}
+</div>`
+    );
+  });
+
+  it('reactElementToJSXString(<div>{(e, b) => (<div>Hello World</div>)}</div>)', () => {
+    expect(
+      reactElementToJSXString(<div>{(e, b) => <div>Hello World</div>}</div>, {
+        showFunctions: true,
+      })
+    ).toEqual(
+      `<div>
+  {(e, b) => (
+    <div>
+      Hello World
+    </div>
+  )}
+</div>`
+    );
+  });
+
   it('reactElementToJSXString(<DisplayNamePrecedence />)', () => {
     expect(reactElementToJSXString(<DisplayNamePrecedence />)).toEqual(
       '<This should take precedence />'

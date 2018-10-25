@@ -24,7 +24,7 @@ export default (
 
   const functionRender = formatTreeNode(childrens, false, lvl + 1, options);
 
-  const out = `{() => (
+  const out = `{(${node.parameters.join(', ')}) => (
 ${spacer(lvl + 1, tabStop)}${functionRender}
 ${spacer(lvl, tabStop)})}`;
 
